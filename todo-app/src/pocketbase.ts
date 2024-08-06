@@ -1,5 +1,8 @@
 import Pocketbase from "pocketbase";
 
-const pb = new Pocketbase("http://127.0.0.1:8090");
+const PB_URL = import.meta.env.VITE_PB_URL;
+const PB_PORT = import.meta.env.VITE_PB_PORT;
+
+const pb = new Pocketbase(`${PB_URL}:${PB_PORT}`);
 
 export default pb;
