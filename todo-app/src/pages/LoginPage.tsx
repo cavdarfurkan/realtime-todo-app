@@ -46,7 +46,6 @@ const LoginPage = () => {
     event: FormEvent | undefined
   ) => {
     event?.preventDefault();
-    // FIX: Authentication is not working on mobile device through exposed network
     pb.collection("users")
       .authWithPassword(values.username, values.password)
       .then(() => {
@@ -64,14 +63,8 @@ const LoginPage = () => {
   return (
     <Container size={420} my={40}>
       <Title ta="center" className={classes.title}>
-        Welcome back!
+        Login
       </Title>
-      <Text c="dimmed" size="sm" ta="center" mt={5}>
-        Do not have an account yet?{" "}
-        <Anchor size="sm" component="button">
-          Create account
-        </Anchor>
-      </Text>
 
       <form
         onSubmit={form.onSubmit((values, event) => handleSubmit(values, event))}
